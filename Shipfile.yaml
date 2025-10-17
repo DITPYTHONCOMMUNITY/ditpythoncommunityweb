@@ -2,4 +2,4 @@ script: |
   pip install -r requirements.txt
   python manage.py makemigrations
   python manage.py migrate
-run: gunicorn ditcomunity.wsgi:application --bind 0.0.0.0:8000
+run: gunicorn ditcommunity.wsgi:application --bind 0.0.0.0:8000
