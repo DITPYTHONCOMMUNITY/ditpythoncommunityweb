@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-(f2bg_p_byp-f*ryfu(_lwodmu8qbc#!q5j0l=c&5glyk^fe1)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['pydit.deploy.tz', '127.0.0.1', 'localhost']
 
 
 # Application definition
