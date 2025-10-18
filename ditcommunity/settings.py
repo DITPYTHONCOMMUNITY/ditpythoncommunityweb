@@ -11,19 +11,23 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Load environment variables from .env file
+load_dotenv()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(f2bg_p_byp-f*ryfu(_lwodmu8qbc#!q5j0l=c&5glyk^fe1)'
+SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-(f2bg_p_byp-f*ryfu(_lwodmu8qbc#!q5j0l=c&5glyk^fe1)')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
 
 ALLOWED_HOSTS = ['pydit.deploy.tz', '127.0.0.1', 'localhost']
 
@@ -116,8 +120,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']  # Change this - source files location
-STATIC_ROOT = BASE_DIR / 'staticfiles'     # Add this - collected files location
+STATICFILES_DIRS = [BASE_DIR / 'static']  # source files location
+STATIC_ROOT = BASE_DIR / 'staticfiles'     # collected files location
 
 
 # Default primary key field type
